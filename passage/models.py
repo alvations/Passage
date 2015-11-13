@@ -109,6 +109,10 @@ class RNN(object):
         else:
             raise NotImplementedError
 
+    def predict_binary(self, X, threshold=0.5):
+        for prediction in self.predict(X):
+            yield prediction >= 0.5
+
     def predict_iterator(self, X):
         preds = []
         for xmb in self.iterator.iterX(X):
