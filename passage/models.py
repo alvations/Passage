@@ -111,7 +111,7 @@ class RNN(object):
 
     def predict_binary(self, X, threshold=0.5):
         for prediction in self.predict(X):
-            yield prediction >= threshold
+            yield int(prediction >= threshold)
 
     def predict_iterator(self, X):
         preds = []
